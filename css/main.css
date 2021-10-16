@@ -1317,13 +1317,16 @@ button {
 }
 
 .profile-intro__text {
-    margin-bottom: 15px;
     font-family: Austin Cyr;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
     color: #000
+}
+
+.profile-intro__text:not(:last-child) {
+    margin-bottom: 15px;
 }
 
 .profile-intro__edit-block {
