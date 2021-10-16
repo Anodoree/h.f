@@ -320,6 +320,142 @@ button {
     font-family: Austin Cyr, sans-serif
 }
 
+/* ---------------------------------------------------------------- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.edit-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+}
+
+.edit-btn:not(:last-child) {
+    margin-right: 26px;
+}
+
+.edit-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.edit-block__btn {
+    margin-left: auto;
+    padding: 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.2em;
+    font-family: Druk Cyr, sans-serif;
+    text-transform: uppercase;
+    text-align: right;
+    color: #ffffff;
+}
+
+.edit-block__btn--short {
+    max-width: -webkit-min-content;
+    max-width: -moz-min-content;
+    max-width: min-content;
+}
+
+.edit-block__btn--alone {
+    margin-left: 0;
+}
+
+.add-work {
+    width: 100%;
+    background: #ffffff;
+}
+
+.add-work:not(:last-child) {
+    margin-bottom: 60px;
+}
+
+.add-work_file-preview {
+    position: relative;
+    min-height: 255px;
+    margin-bottom: 15px;
+    border: 1px solid #000;
+}
+
+.add-work__input-file {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.add-work__input {
+    border: 1px solid #000;
+    padding: 6px 10px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.add-work__button, .add-work__input {
+    width: 100%;
+    font-family: Austin Cyr;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.add-work__button {
+    padding: 8px 0 8px 12px;
+    background: #000;
+    color: #fff;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.add-work__button:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.add-work__edit-block {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding: 10px 15px;
+    background-color: #000000;
+}
+
+.add-work__edit-block--file {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+/* ---------------------------------------------------------------- */
+
 .header {
     padding-top: 20px;
     width: 100%;
@@ -1119,31 +1255,69 @@ button {
     }
 }
 
+.profile-intro__img-box {
+    position: relative;
+    margin-right: 30px
+}
+
+.profile-intro__img-box,
 .profile-intro__img {
     max-width: 375px;
     min-width: 300px;
     width: 100%;
     height: auto;
-    margin-right: 30px
 }
 
 @media (max-width: 700px) {
-    .profile-intro__img {
-        margin-bottom: 30px
+    .profile-intro__img-box {
+        margin-bottom: 30px;
+        margin-right: 0
     }
 }
 
 @media (max-width: 480px) {
-    .profile-intro__img {
+    .profile-intro__img-box {
         -webkit-box-ordinal-group: 2;
         -webkit-order: 1;
         order: 1
     }
 }
 
-.profile-intro__text {
+.profile-intro__img-edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.profile-intro__text-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     max-width: 460px;
     width: 100%;
+}
+
+@media (max-width: 480px) {
+    .profile-intro__text-box {
+        -webkit-box-ordinal-group: 4;
+        -webkit-order: 3;
+        order: 3
+    }
+}
+
+.profile-intro__text {
+    margin-bottom: 15px;
     font-family: Austin Cyr;
     font-style: normal;
     font-weight: 400;
@@ -1152,12 +1326,19 @@ button {
     color: #000
 }
 
-@media (max-width: 480px) {
-    .profile-intro__text {
-        -webkit-box-ordinal-group: 4;
-        -webkit-order: 3;
-        order: 3
-    }
+.profile-intro__edit-block {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.profile-intro__edit-block--text {
+    margin-top: auto;
+    background-color: #000000;
 }
 
 .profile-intro__contact {
@@ -1167,7 +1348,9 @@ button {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
-    flex-direction: column
+    flex-direction: column;
+    max-width: 375px;
+    min-width: 300px;
 }
 
 @media (max-width: 480px) {
@@ -1181,6 +1364,29 @@ button {
 
 .profile-intro__contact-title {
     margin-bottom: 10px
+}
+
+.profile-intro__contact-box {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.profile-intro__contact-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 .profile-intro__contact-link {
@@ -1246,10 +1452,32 @@ button {
     margin-bottom: 30px
 }
 
+.profile-portfolio__block-box {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.profile-portfolio__block-box,
 .profile-portfolio__block-img {
     width: 100%;
     height: auto;
-    margin-bottom: 25px
+}
+
+.profile-portfolio__block-edit-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.profile-portfolio__edit-block {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .profile-portfolio__block-title {
